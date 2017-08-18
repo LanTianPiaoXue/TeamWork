@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<pattern>%date [%thread] %-5level %logger{80} - %msg%n</pattern>
+		</layout>
+<!-- 		<filter class="ch.qos.logback.classic.filter.LevelFilter"> -->
+<!--       		<level>INFO</level>    -->
+<!-- 			<onMatch>ACCEPT</onMatch>    -->
+<!-- 			<onMismatch>DENY</onMismatch> -->
+<!-- 		</filter> -->
+<!-- 		<filter class="ch.qos.logback.classic.filter.LevelFilter"> -->
+<!--       		<level>WARN</level>    -->
+<!-- 			<onMatch>ACCEPT</onMatch>    -->
+<!-- 			<onMismatch>DENY</onMismatch> -->
+<!-- 		</filter> -->
+<!-- 		<filter class="ch.qos.logback.classic.filter.LevelFilter"> -->
+<!--       		<level>ERROR</level>    -->
+<!-- 			<onMatch>ACCEPT</onMatch>    -->
+<!-- 			<onMismatch>DENY</onMismatch> -->
+<!-- 		</filter> -->
+	</appender>
+	<appender name="debug" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<File>F:/log/horo/debug.log</File>
+		<encoder>
+			<charset>UTF-8</charset>
+			<pattern>%-5p [%t] %d{yy-MM-dd HH:mm:ss} &lt;%c&gt; -- %m%n</pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>F:/log/horo/debug.%d{yyyy-MM-dd_HH-mm,3}.log.zip</fileNamePattern>
+			<!-- set this policy if u care the files size 
+			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+    			<maxFileSize>10MB</maxFileSize>
+   			</timeBasedFileNamingAndTriggeringPolicy> -->     
+		</rollingPolicy>
+		<!-- filter class="ch.qos.logback.core.filter.EvaluatorFilter">       
+			<evaluator class="ch.qos.logback.classic.boolex.JaninoEventEvaluator">
+				<matcher> 
+	        		<Name>monitor</Name> 
+	        		<regex>statement [MakeMonitorLog]</regex> 
+	        	</matcher> 
+                <expression>monitor.matches(formattedMessage)</expression> 
+			</evaluator> 
+      		<OnMatch>DENY</OnMatch>
+      		<OnMismatch>ACCEPT</OnMismatch>
+    	</filter-->
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+      		<level>DEBUG</level>   
+			<onMatch>ACCEPT</onMatch>   
+			<onMismatch>DENY</onMismatch>
+		</filter>
+	</appender>
+	<appender name="info" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<File>F:/log/horo/info.log</File>
+		<encoder>
+			<charset>UTF-8</charset>
+			<pattern>%-5p [%t] %d{yy-MM-dd HH:mm:ss} &lt;%c&gt; -- %m%n</pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>F:/log/horo/info.%d{yyyy-MM-dd_HH-mm,3}.log.zip</fileNamePattern>
+			<!-- set this policy if u care the files size 
+			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+    			<maxFileSize>10MB</maxFileSize>
+   			</timeBasedFileNamingAndTriggeringPolicy> -->     
+		</rollingPolicy>
+		
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+      		<level>TRACE</level>   
+			<onMatch>ACCEPT</onMatch>   
+			<onMismatch>NEUTRAL</onMismatch>
+		</filter>		
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+      		<level>INFO</level>   
+			<onMatch>ACCEPT</onMatch>   
+			<onMismatch>NEUTRAL</onMismatch>
+		</filter>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+      		<level>WARN</level>   
+			<onMatch>ACCEPT</onMatch>   
+			<onMismatch>DENY</onMismatch>
+		</filter>
+	</appender>
+	<appender name="error" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<File>F:/log/horo/error.log</File>
+		<encoder>
+			<charset>UTF-8</charset>
+			<pattern>%-5p [%t] %d{yy-MM-dd HH:mm:ss} &lt;%c&gt; -- %m%n</pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>F:/log/horo/error.%d{yyyy-MM-dd_HH-mm,3}.log.zip</fileNamePattern>
+			<!-- set this policy if u care the files size 
+			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+    			<maxFileSize>10MB</maxFileSize>
+   			</timeBasedFileNamingAndTriggeringPolicy> -->     
+		</rollingPolicy>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+      		<level>ERROR</level>   
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+	</appender>
+	<appender name="error_input" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<File>F:/log/horo/error.input.log</File>
+		<encoder>
+			<charset>UTF-8</charset>
+			<pattern>%-5p [%t] %d{yy-MM-dd HH:mm:ss} &lt;%c&gt; -- %m%n</pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>F:/log/horo/error.input.%d{yyyy-MM-dd_HH-mm,3}.log.zip</fileNamePattern>
+			<!-- set this policy if u care the files size 
+			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+    			<maxFileSize>10MB</maxFileSize>
+   			</timeBasedFileNamingAndTriggeringPolicy> -->     
+		</rollingPolicy>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+      		<level>ERROR</level>   
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+	</appender>		
+	<appender name="monitor" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<File>F:/log/horo/monitor/booking.log</File>
+		<encoder>
+			<charset>UTF-8</charset>
+			<pattern>%-5p [%t] %d{yy-MM-dd HH:mm:ss} &lt;%c&gt; -- %m%n</pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>F:/log/horo/monitor/booking.%d{yyyy-MM-dd_HH-mm,3}.log.zip</fileNamePattern>
+		</rollingPolicy>
+	</appender>
+	<logger name="org.springframework">
+		<appender-ref ref="error" />
+	</logger>
+	<logger name="com.learn.ygz">
+		<appender-ref ref="info" />
+		<appender-ref ref="error" />
+	</logger>
+	<logger name="org.apache.cxf">
+		<appender-ref ref="info" />
+		<appender-ref ref="error" />
+	</logger>	
+	<root>
+		<appender-ref ref="stdout" />
+	</root>
+</configuration> 

@@ -1,0 +1,8 @@
+server:
+  context-path: /girl
+  port: 8082
+coupsize: F
+girl:
+  age : 20
+  name: AAA
+  coupSize: ${coupsize}
