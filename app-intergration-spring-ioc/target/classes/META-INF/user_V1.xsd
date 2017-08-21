@@ -11,24 +11,37 @@
             <attribute name="age" type="int"/>
         </complexType>
     </element>
-    <!--<element name="user">
+    <element name="note">
         <complexType>
             <sequence>
-                <element name="id" type="string"/>
-                <element name="name" type="string"/>
-                <element name="pwd" type="string"/>
-                <element name="age" type="int"/>
-                <element name="personInfo" type="tns:PersonInfo"/>
+                <choice>
+                    <element name="to" type="string"/>
+                    <element name="from" type="string"/>
+                    <element name="heading" type="string"/>
+                    <element name="body" type="string"/>
+                </choice>
+                <element name="user" type="tns:PersonInfo"/>
             </sequence>
         </complexType>
-    </element>-->
+    </element>
     <complexType name="PersonInfo">
         <attribute name="id" type="string"/>
         <attribute name="name" type="string"/>
     </complexType>
     <element name="people" type="tns:PersonInfo"/>
 
-    <element name="myBean">
+
+
+    <element name="bean">
+        <annotation>
+            <documentation source="java:org.springframework.beans.factory.config.BeanDefinition"><![CDATA[
+	Defines a single (usually named) bean.
+
+	A bean definition may contain nested tags for constructor arguments,
+	property values, lookup methods, and replaced methods. Mixing constructor
+	injection and setter injection on the same bean is explicitly supported.
+			]]></documentation>
+        </annotation>
         <complexType>
             <complexContent>
                 <extension base="tns:identifiedType">
@@ -117,9 +130,23 @@
         </attribute>
     </complexType>
 
+    <!-- Collection Types -->
+
     <!-- base types -->
     <complexType name="identifiedType" abstract="true">
-        <attribute name="myId" type="string">
+        <annotation>
+            <documentation><![CDATA[
+	The unique identifier for a bean. The scope of the identifier
+	is the enclosing bean factory.
+			]]></documentation>
+        </annotation>
+        <attribute name="id" type="string">
+            <annotation>
+                <documentation><![CDATA[
+	The unique identifier for a bean. A bean id may not be used more than once
+	within the same <beans> element.
+				]]></documentation>
+            </annotation>
         </attribute>
     </complexType>
 

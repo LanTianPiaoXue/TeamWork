@@ -3,14 +3,8 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:MyTag="http://www.learn.ygz.com/schema/user"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
-      http://www.learn.ygz.com/schema/user http://www.learn.ygz.com/schema/user.xsd">
+      http://www.learn.ygz.com/schema/user http://www.learn.ygz.com/schema/user.xsd
+ ">
       <MyTag:user name="AAA" id="001" age="111" pwd="222"/>
-      <!--<MyTag:user>
-            <MyTag:id>001</MyTag:id>
-            <MyTag:name>AAA001</MyTag:name>
-            <MyTag:pwd>BBB</MyTag:pwd>
-            <MyTag:age>123</MyTag:age>
-            <MyTag:personInfo id="BBB001" name="BBB"/>
-      </MyTag:user>-->
 
 </beans>

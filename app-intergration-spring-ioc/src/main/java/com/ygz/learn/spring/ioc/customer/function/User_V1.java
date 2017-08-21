@@ -7,20 +7,30 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 /**
  * Created by admin on 2017/8/14.
  */
-public class User {
+public class User_V1 {
     private String id;
     private String name;
     private String pwd;
     private int age;
-    public User() {
+    private PersonInfo personInfo;
+    public User_V1() {
     }
 
-    public User(String id, String name, String pwd, int age, PersonInfo personInfo) {
+    public User_V1(String id, String name, String pwd, int age, PersonInfo personInfo) {
         this.id = id;
         this.name = name;
         this.pwd = pwd;
         this.age = age;
+        this.personInfo = personInfo;
     }
+    public PersonInfo getPersonInfo() {
+        return personInfo;
+    }
+
+    public void setPersonInfo(PersonInfo personInfo) {
+        this.personInfo = personInfo;
+    }
+
     public String getId() {
         return id;
     }
