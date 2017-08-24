@@ -15,10 +15,11 @@ import java.util.concurrent.atomic.AtomicLong;
  */
 public class OrderedConsumer {
     public static void main(String[] args) throws Exception {
-        DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("example_group_name");
-
+        DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("ExampleConsume");
+        consumer.setNamesrvAddr("127.0.0.1:9876");
+        consumer.setConsumerGroup("ExampleConsumeGroup");
         consumer.setConsumeFromWhere(ConsumeFromWhere.CONSUME_FROM_FIRST_OFFSET);
-
+        consumer.setConsumerGroup("ExampleConsumeGroup");
         consumer.subscribe("TopicTest", "TagA || TagC || TagD");
 
         consumer.registerMessageListener(new MessageListenerOrderly() {

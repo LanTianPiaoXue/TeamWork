@@ -8,9 +8,9 @@ import org.apache.rocketmq.remoting.common.RemotingHelper;
 public class OnewayProducer {
     public static void main(String[] args) throws Exception{
         //Instantiate with a producer group name.
-        DefaultMQProducer producer = new DefaultMQProducer("ExampleProducerGroup");
+        DefaultMQProducer producer = new DefaultMQProducer("ExampleProducer");
         producer.setNamesrvAddr("127.0.0.1:9876");
-        producer.setProducerGroup("SyncProducerGroup");
+        producer.setProducerGroup("ExampleProducerGroup");
         //Launch the instance.
         producer.start();
         for (int i = 0; i < 100; i++) {

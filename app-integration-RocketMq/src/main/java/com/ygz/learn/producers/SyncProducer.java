@@ -9,13 +9,13 @@ public class SyncProducer {
     public static void main(String[] args) throws Exception {
         //Instantiate with a producer group name.
         DefaultMQProducer producer = new
-                DefaultMQProducer("please_rename_unique_group_name");
+                DefaultMQProducer("ExampleProducer");
         producer.setNamesrvAddr("127.0.0.1:9876");
-        producer.setProducerGroup("SyncProducerGroup");
+        producer.setProducerGroup("ExampleProducerGroup");
         //Launch the instance.
 
         producer.start();
-        for (int i = 0; i < 1; i++) {
+        for (int i = 0; i < 100; i++) {
             //Create a message instance, specifying topic, tag and message body.
             Message msg = new Message("TopicTest" /* Topic */,
                     "TagA" /* Tag */,
